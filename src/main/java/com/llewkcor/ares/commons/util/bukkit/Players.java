@@ -77,4 +77,8 @@ public final class Players {
         player.setNoDamageTicks(20);
         player.getActivePotionEffects().forEach(effect -> player.removePotionEffect(effect.getType()));
     }
+
+    private Players() {
+        throw new UnsupportedOperationException("This class can not be instantiated");
+    }
 }
