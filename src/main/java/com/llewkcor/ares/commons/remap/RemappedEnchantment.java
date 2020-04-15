@@ -35,6 +35,21 @@ public enum RemappedEnchantment {
     @Getter public final Enchantment enchantment;
 
     /**
+     * Returns a RemappedEnchantment matching the provided Bukkit Enchantment
+     * @param enchantment Bukkit Enchantment
+     * @return RemappedEnchantment
+     */
+    public static RemappedEnchantment getRemappedEnchantmentByBukkit(Enchantment enchantment) {
+        for (RemappedEnchantment remapped : values()) {
+            if (remapped.getEnchantment().equals(enchantment)) {
+                return remapped;
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * Returns a Bukkit Enchantment instance matching the provided name input
      * @param name Name input
      * @return Bukkit Enchantment
