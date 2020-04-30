@@ -14,7 +14,7 @@ public final class Configs {
      * @return YamlConfiguration
      */
     public static YamlConfiguration getConfig(Plugin plugin, String name) {
-        final File file = new File(plugin.getDataFolder() + "/" + name + ".yml");
+        final File file = new File(plugin.getDataFolder() + System.getProperty("file.separator") + name + ".yml");
 
         if (!file.exists()) {
             createConfig(plugin, name);
@@ -25,6 +25,7 @@ public final class Configs {
 
     /**
      * Create a new Yaml Configuration
+     * @param plugin Plugin
      * @param name File Name
      */
     public static void createConfig(Plugin plugin, String name) {
