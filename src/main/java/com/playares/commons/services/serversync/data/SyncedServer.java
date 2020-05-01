@@ -99,20 +99,21 @@ public final class SyncedServer implements MongoDocument<SyncedServer> {
 
     @AllArgsConstructor
     public enum ServerType {
-        @SerializedName("lobby") LOBBY("Lobby"),
-        @SerializedName("civ") CIV("Civilizations"),
-        @SerializedName("dev") DEV("Development"),
-        @SerializedName("hc") HC("Hungercraft"),
-        @SerializedName("mz") MZ("MineZ");
+        LOBBY("Lobby"),
+        FACTIONS("Factions"),
+        CIV("Civilizations"),
+        DEV("Development"),
+        HC("Hungercraft"),
+        MZ("MineZ");
 
         @Getter public final String displayName;
     }
 
     @AllArgsConstructor
     public enum ServerStatus {
-        @SerializedName("online") ONLINE(ChatColor.GREEN + "Online"),
-        @SerializedName("offline") OFFLINE(ChatColor.RED + "Offline"),
-        @SerializedName("whitelisted") WHITELISTED(ChatColor.GRAY + "Whitelisted");
+        ONLINE(ChatColor.GREEN + "Online"),
+        OFFLINE(ChatColor.RED + "Offline"),
+        WHITELISTED(ChatColor.GRAY + "Whitelisted");
 
         @Getter public final String displayName;
     }
