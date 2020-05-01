@@ -27,8 +27,11 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.scheduler.BukkitTask;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public final class ServerSyncService implements AresService {
     @Getter public final AresPlugin owner;
@@ -101,6 +104,23 @@ public final class ServerSyncService implements AresService {
                 playerList,
                 maxPlayers,
                 premiumAllocatedSlots));
+    }
+
+    /**
+     * Returns the most balanced lobby
+     * @return Lobby Server
+     */
+    public SyncedServer getLobby() {
+        final List<SyncedServer> lobbies = servers.stream().filter(server -> server.getType().equals(SyncedServer.ServerType.LOBBY)).collect(Collectors.toList());
+
+        if (lobbies.isEmpty()) {
+            return null;
+        }
+
+        lobbies.sort(Comparator.comparingInt(lobby -> lobby.getPlayerList().size()));
+        Collections.reverse(lobbies);
+
+        return lobbies.get(0);
     }
 
     /**
