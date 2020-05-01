@@ -1,0 +1,8 @@
+server-settings:
+  server-id: 0
+  display-name: '&aLobby'
+  bungee-name: 'lobby'
+  description: 'Ares Lobby'
+  type: 'LOBBY'
+  max-players: 300
+  premium-allocated-slots: 100
