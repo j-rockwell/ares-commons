@@ -81,8 +81,10 @@ public final class ServerSyncService implements AresService {
 
         push();
 
-        this.updateTask.cancel();
-        this.updateTask = null;
+        if (this.updateTask != null) {
+            this.updateTask.cancel();
+            this.updateTask = null;
+        }
     }
 
     public void load() {
