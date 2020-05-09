@@ -217,6 +217,8 @@ public final class ServerSyncService implements AresService {
 
             servers.add(server);
         }
+
+        cursor.close();
     }
 
     @AllArgsConstructor

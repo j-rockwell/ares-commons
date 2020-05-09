@@ -63,6 +63,8 @@ public final class AccountSessionDAO {
             result.add(session);
         }
 
+        match.close();
+
         return ImmutableList.copyOf(result);
     }
 
